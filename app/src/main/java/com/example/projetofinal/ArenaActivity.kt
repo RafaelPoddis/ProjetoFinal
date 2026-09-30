@@ -2,6 +2,8 @@ package com.example.projetofinal
 
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageButton
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 
 class ArenaActivity : ComponentActivity() {
@@ -14,6 +16,15 @@ class ArenaActivity : ComponentActivity() {
 
         giveUp.setOnClickListener {
             finish()
+        }
+
+        val attack = findViewById<ImageButton>(R.id.atkBtn)
+        val scoreTxt = findViewById<TextView>(R.id.scoreTxt)
+        var score: Int = 0
+
+        attack.setOnClickListener {
+            score++
+            scoreTxt.text = "Pontuação $score"
         }
     }
 }
