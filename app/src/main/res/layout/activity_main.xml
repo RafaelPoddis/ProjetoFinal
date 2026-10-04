@@ -25,7 +25,7 @@
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="15dp"
-        app:layout_constraintBottom_toTopOf="@+id/agite"
+        app:layout_constraintBottom_toTopOf="@+id/selecionadoTxt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo">
@@ -36,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="15dp"
             android:orientation="vertical"
+            android:gravity="center"
             app:layout_constraintTop_toBottomOf="parent">
 
             <ImageButton
@@ -49,36 +50,23 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Espada"
+                android:text="Sortear arma"
                 android:textSize="16sp" />
 
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/escudo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="parent">
-
-            <ImageButton
-                android:id="@+id/shieldBtn"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:background="@null"
-                android:rotationX="180"
-                android:src="@drawable/ic_shield"
-                android:contentDescription="shieldBtn"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Escudo"
-                android:textSize="16sp" />
-
-        </LinearLayout>
     </LinearLayout>
+
+    <TextView
+        android:id="@+id/selecionadoTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Arma sorteada: Nenhuma"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/agite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/agite"
@@ -91,5 +79,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/selecionadoTxt" />
 </androidx.constraintlayout.widget.ConstraintLayout>
