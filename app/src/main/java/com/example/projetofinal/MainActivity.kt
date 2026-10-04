@@ -23,7 +23,7 @@ class MainActivity : ComponentActivity(), SensorEventListener {
     private lateinit var textViewZ: TextView
 
     private var ultimoMovimento = 0L
-    private val limiteAgitacao = 15f
+    private val limiteAgitacao = 20f
 
     private val armas: List<Arma> = listOf(
         Arma("Adaga", 10),

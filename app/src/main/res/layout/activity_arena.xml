@@ -65,15 +65,17 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/scoreTxt"
+        android:id="@+id/logTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:text="Pontuação: 0"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="Ataque para começar a luta!"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
+
 
     <Button
         android:id="@+id/giveUpBtn"
