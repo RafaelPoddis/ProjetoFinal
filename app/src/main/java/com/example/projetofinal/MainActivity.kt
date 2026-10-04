@@ -92,9 +92,17 @@ class MainActivity : ComponentActivity(), SensorEventListener {
                 agora - ultimoMovimento > 1000
             ) {
                 ultimoMovimento = agora
+                val arma: Arma? = armaAtual
 
-                val intent = Intent(this, ArenaActivity::class.java)
-                startActivity(intent)
+                if(arma == null){
+                    Toast.makeText(this, "Sorteie a arma primeiro!", Toast.LENGTH_SHORT).show()
+                } else {
+                    val intent = Intent(this, ArenaActivity::class.java)
+                    intent.putExtra("armaNome", arma.nome)
+                    intent.putExtra("armaDano", arma.dano)
+                    startActivity(intent)
+                }
+
             }
         }
     }
