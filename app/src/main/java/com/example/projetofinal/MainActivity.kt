@@ -6,14 +6,17 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 
+data class Arma(val nome: String, val dano: Int)
 class MainActivity : ComponentActivity(), SensorEventListener {
 
     private lateinit var sensorManager: SensorManager
     private var acelerometro: Sensor? = null
+    private lateinit var selecionadoTxt: TextView
 
     private lateinit var textViewX: TextView
     private lateinit var textViewY: TextView
@@ -21,6 +24,13 @@ class MainActivity : ComponentActivity(), SensorEventListener {
 
     private var ultimoMovimento = 0L
     private val limiteAgitacao = 15f
+
+    private val armas: List<Arma> = listOf(
+        Arma("Adaga", 10),
+        Arma("Espada", 12),
+        Arma("Machado", 18)
+    )
+    private var armaAtual: Arma? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +44,24 @@ class MainActivity : ComponentActivity(), SensorEventListener {
             Toast.makeText(this, "Acelerômetro não disponível neste dispositivo.", Toast.LENGTH_LONG).show()
         }
 
+        selecionadoTxt = findViewById(R.id.selecionadoTxt)
+
+        val swordBtn = findViewById<ImageButton>(R.id.swordBtn)
+        swordBtn.setOnClickListener {
+            sortearArma()
+            swordBtn.isEnabled = false
+            swordBtn.alpha = 0.4f
+        }
+
+
     }
+
+    private fun sortearArma() {
+        val sorteada: Arma = armas.random()
+        armaAtual = sorteada
+        selecionadoTxt.text = "Arma sorteada: ${sorteada.nome} (dano ${sorteada.dano})"
+    }
+
 
     override fun onResume() {
         super.onResume()
